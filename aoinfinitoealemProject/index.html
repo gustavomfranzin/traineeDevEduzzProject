@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="StyleSheet" href="style.css">
+    <title>Ao infinito e Além!</title>
+</head>
+<body>
+    <div class="container">
+        <div class="form">
+                <label for="totalGanhos">Qual total de ganhos até hoje?</label>
+                R$<input type="number" id="totalGanhos" name="totalGanhos">
+                
+                <label for="valorProduto">Qual valor do produto?</label>
+                R$<input type="number" id="valorProduto" name="valorproduto">
+                
+                <label for="comissaoAfiliado">Comissão do afiliado:</label>
+                porcentagem<input type="number" id="comissaoAfiliado" name="comissaoAfiliado">
+                                
+                <label for="comissaoParceiro">Comissão do parceiro(s):</label>
+                porcentagem<input type="number" id="comissaoParceiro" name="comissaoParceiro">
+                <button type="submit" onClick="CalcularRota()">Calcular Jornada!</button>
+        </div>
+    </div>
+</body>
+<script type="text/javascript" src="./scripts/rules.js"></script>
+</html>
