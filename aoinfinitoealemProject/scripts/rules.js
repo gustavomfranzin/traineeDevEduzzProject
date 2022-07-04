@@ -1,7 +1,7 @@
 const btn = document.querySelector("#send");
 
 btn.addEventListener("click", function (e) {
-  e.preventDefault();
+  
 
   const input_TOTAL_GANHOS = document.querySelector("#totalGanhos");
   const input_VALOR_PRODUTO = document.querySelector("#valorProduto");
