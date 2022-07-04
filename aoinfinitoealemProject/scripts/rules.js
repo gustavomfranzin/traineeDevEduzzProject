@@ -28,83 +28,59 @@ btn.addEventListener("click", function (e) {
         COMISSAO_AFILIADO * VALOR_PRODUTO_TAXA_DESCONTADA;
 
       return GANHOS_POR_FATURA;
-    }
-    if (COMISSAO_AFILIADO > 0 && COMISSAO_PARCEIROS > 0) {
-      const VALOR_PRODUTO_TAXA_DESCONTADA =
-        VALOR_PRODUTO - TAXA_VENDA_AFILIADO - 1;
+    } else {
+      if (COMISSAO_AFILIADO > 0 && COMISSAO_PARCEIROS > 0) {
+        const VALOR_PRODUTO_TAXA_DESCONTADA =
+          VALOR_PRODUTO - TAXA_VENDA_AFILIADO - 1;
 
-      const VALOR_PRODUTO_COMISSAO_AFILIADO_DESCONTADA =
-        VALOR_PRODUTO_TAXA_DESCONTADA -
-        COMISSAO_AFILIADO * VALOR_PRODUTO_TAXA_DESCONTADA;
+        const VALOR_PRODUTO_COMISSAO_AFILIADO_DESCONTADA =
+          VALOR_PRODUTO_TAXA_DESCONTADA -
+          COMISSAO_AFILIADO * VALOR_PRODUTO_TAXA_DESCONTADA;
 
-      GANHOS_POR_FATURA =
-        VALOR_PRODUTO_COMISSAO_AFILIADO_DESCONTADA -
-        COMISSAO_PARCEIROS * VALOR_PRODUTO_COMISSAO_AFILIADO_DESCONTADA;
+        GANHOS_POR_FATURA =
+          VALOR_PRODUTO_COMISSAO_AFILIADO_DESCONTADA -
+          COMISSAO_PARCEIROS * VALOR_PRODUTO_COMISSAO_AFILIADO_DESCONTADA;
 
-      return GANHOS_POR_FATURA;
-    }
-    if (COMISSAO_AFILIADO === 0 && COMISSAO_PARCEIROS === 0) {
-      GANHOS_POR_FATURA = VALOR_PRODUTO - TAXA_VENDA_PRODUTOR - 1;
+        return GANHOS_POR_FATURA;
+      } else {
+        if (COMISSAO_AFILIADO === 0 && COMISSAO_PARCEIROS === 0) {
+          GANHOS_POR_FATURA = VALOR_PRODUTO - TAXA_VENDA_PRODUTOR - 1;
 
-      return GANHOS_POR_FATURA;
-    }
-    if (COMISSAO_AFILIADO === 0 && COMISSAO_PARCEIROS > 0) {
-      const VALOR_PRODUTO_TAXA_DESCONTADA =
-        VALOR_PRODUTO - TAXA_VENDA_PRODUTOR - 1;
+          return GANHOS_POR_FATURA;
+        } else {
+          if (COMISSAO_AFILIADO === 0 && COMISSAO_PARCEIROS > 0) {
+            const VALOR_PRODUTO_TAXA_DESCONTADA =
+              VALOR_PRODUTO - TAXA_VENDA_PRODUTOR - 1;
 
-      GANHOS_POR_FATURA =
-        VALOR_PRODUTO_TAXA_DESCONTADA -
-        COMISSAO_PARCEIROS * VALOR_PRODUTO_TAXA_DESCONTADA;
+            GANHOS_POR_FATURA =
+              VALOR_PRODUTO_TAXA_DESCONTADA -
+              COMISSAO_PARCEIROS * VALOR_PRODUTO_TAXA_DESCONTADA;
 
-      return GANHOS_POR_FATURA;
+            return GANHOS_POR_FATURA;
+          }
+        }
+      }
     }
   }
 
-  if (TOTAL_GANHOS < BELT[1]) {
-    const QTD_FATURAS_APROXIMADAS =
-      (BELT[1] - TOTAL_GANHOS) / calculaGanhosPorFatura();
-    const QTD_FATURAS_APROXIMADAS_GOLDEN =
-      (BELT[5] - TOTAL_GANHOS) / calculaGanhosPorFatura();
-
-    BELT[0] = "WHITE BELT";
-    BELT[1] = "RED BELT";
-    BELT[5] = "GOLDEN BELT";
-
-    console.log(
-      "Olá, hoje você possui um total de ganhos: R$" +
-        TOTAL_GANHOS +
-        " sua faixa atua é, " +
-        BELT[0] +
-        " para que você atinga a próxima Belt(" +
-        BELT[1] +
-        ") com esse novo produto você possui um ganho por fatura de, " +
-        calculaGanhosPorFatura() +
-        " você precisará vender: " +
-        QTD_FATURAS_APROXIMADAS +
-        ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
-        BELT[5] +
-        " você precisará realizar um total de, " +
-        QTD_FATURAS_APROXIMADAS_GOLDEN +
-        " FATURAS na plataforma da Eduzz."
-    );
-  } else {
-    if (TOTAL_GANHOS < BELT[2]) {
+  if (calculaGanhosPorFatura() > 0) {
+    if (TOTAL_GANHOS < BELT[1]) {
       const QTD_FATURAS_APROXIMADAS =
-        (BELT[2] - TOTAL_GANHOS) / calculaGanhosPorFatura();
+        (BELT[1] - TOTAL_GANHOS) / calculaGanhosPorFatura();
       const QTD_FATURAS_APROXIMADAS_GOLDEN =
         (BELT[5] - TOTAL_GANHOS) / calculaGanhosPorFatura();
 
+      BELT[0] = "WHITE BELT";
       BELT[1] = "RED BELT";
-      BELT[2] = "ORANGE BELT";
       BELT[5] = "GOLDEN BELT";
 
       console.log(
         "Olá, hoje você possui um total de ganhos: R$" +
           TOTAL_GANHOS +
           " sua faixa atua é, " +
-          BELT[1] +
+          BELT[0] +
           " para que você atinga a próxima Belt(" +
-          BELT[2] +
+          BELT[1] +
           ") com esse novo produto você possui um ganho por fatura de, " +
           calculaGanhosPorFatura() +
           " você precisará vender: " +
@@ -116,23 +92,23 @@ btn.addEventListener("click", function (e) {
           " FATURAS na plataforma da Eduzz."
       );
     } else {
-      if (TOTAL_GANHOS < BELT[3]) {
+      if (TOTAL_GANHOS < BELT[2]) {
         const QTD_FATURAS_APROXIMADAS =
-          (BELT[3] - TOTAL_GANHOS) / calculaGanhosPorFatura();
+          (BELT[2] - TOTAL_GANHOS) / calculaGanhosPorFatura();
         const QTD_FATURAS_APROXIMADAS_GOLDEN =
           (BELT[5] - TOTAL_GANHOS) / calculaGanhosPorFatura();
 
+        BELT[1] = "RED BELT";
         BELT[2] = "ORANGE BELT";
-        BELT[3] = "GREEN BELT";
         BELT[5] = "GOLDEN BELT";
 
         console.log(
           "Olá, hoje você possui um total de ganhos: R$" +
             TOTAL_GANHOS +
             " sua faixa atua é, " +
-            BELT[2] +
+            BELT[1] +
             " para que você atinga a próxima Belt(" +
-            BELT[3] +
+            BELT[2] +
             ") com esse novo produto você possui um ganho por fatura de, " +
             calculaGanhosPorFatura() +
             " você precisará vender: " +
@@ -144,23 +120,23 @@ btn.addEventListener("click", function (e) {
             " FATURAS na plataforma da Eduzz."
         );
       } else {
-        if (TOTAL_GANHOS < BELT[4]) {
+        if (TOTAL_GANHOS < BELT[3]) {
           const QTD_FATURAS_APROXIMADAS =
-            (BELT[4] - TOTAL_GANHOS) / calculaGanhosPorFatura();
+            (BELT[3] - TOTAL_GANHOS) / calculaGanhosPorFatura();
           const QTD_FATURAS_APROXIMADAS_GOLDEN =
             (BELT[5] - TOTAL_GANHOS) / calculaGanhosPorFatura();
 
+          BELT[2] = "ORANGE BELT";
           BELT[3] = "GREEN BELT";
-          BELT[4] = "BLACK BELT";
           BELT[5] = "GOLDEN BELT";
 
           console.log(
             "Olá, hoje você possui um total de ganhos: R$" +
               TOTAL_GANHOS +
               " sua faixa atua é, " +
-              BELT[3] +
+              BELT[2] +
               " para que você atinga a próxima Belt(" +
-              BELT[4] +
+              BELT[3] +
               ") com esse novo produto você possui um ganho por fatura de, " +
               calculaGanhosPorFatura() +
               " você precisará vender: " +
@@ -169,34 +145,69 @@ btn.addEventListener("click", function (e) {
               BELT[5] +
               " você precisará realizar um total de, " +
               QTD_FATURAS_APROXIMADAS_GOLDEN +
-              " FATURAS na plataforma da Eduzz. Acredite, você está quase lá!"
+              " FATURAS na plataforma da Eduzz."
           );
         } else {
-          if (TOTAL_GANHOS < BELT[5]) {
+          if (TOTAL_GANHOS < BELT[4]) {
             const QTD_FATURAS_APROXIMADAS =
+              (BELT[4] - TOTAL_GANHOS) / calculaGanhosPorFatura();
+            const QTD_FATURAS_APROXIMADAS_GOLDEN =
               (BELT[5] - TOTAL_GANHOS) / calculaGanhosPorFatura();
 
+            BELT[3] = "GREEN BELT";
             BELT[4] = "BLACK BELT";
             BELT[5] = "GOLDEN BELT";
 
             console.log(
-              "Olá, hoje você possui um total de ganhos: " +
+              "Olá, hoje você possui um total de ganhos: R$" +
                 TOTAL_GANHOS +
                 " sua faixa atua é, " +
-                BELT[4] +
+                BELT[3] +
                 " para que você atinga a próxima Belt(" +
-                BELT[5] +
-                ") com esse novo produto você precisará vender: " +
+                BELT[4] +
+                ") com esse novo produto você possui um ganho por fatura de, " +
+                calculaGanhosPorFatura() +
+                " você precisará vender: " +
                 QTD_FATURAS_APROXIMADAS +
-                ", então... ao infinito e além!"
+                ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
+                BELT[5] +
+                " você precisará realizar um total de, " +
+                QTD_FATURAS_APROXIMADAS_GOLDEN +
+                " FATURAS na plataforma da Eduzz. Acredite, você está quase lá!"
             );
           } else {
-            console.log(
-              "Bem-vindo ao infinito e além! Agora nessa etapa a sua missão é ajudar outros parceiros a chegarem também!"
-            );
+            if (TOTAL_GANHOS < BELT[5]) {
+              const QTD_FATURAS_APROXIMADAS =
+                (BELT[5] - TOTAL_GANHOS) / calculaGanhosPorFatura();
+
+              BELT[4] = "BLACK BELT";
+              BELT[5] = "GOLDEN BELT";
+
+              console.log(
+                "Olá, hoje você possui um total de ganhos: " +
+                  TOTAL_GANHOS +
+                  " sua faixa atua é, " +
+                  BELT[4] +
+                  " para que você atinga a próxima Belt(" +
+                  BELT[5] +
+                  ") com esse novo produto você precisará vender: " +
+                  QTD_FATURAS_APROXIMADAS +
+                  ", então... ao infinito e além!"
+              );
+            } else {
+              console.log(
+                "Bem-vindo ao infinito e além! Agora nessa etapa a sua missão é ajudar outros parceiros a chegarem também!"
+              );
+            }
           }
         }
       }
     }
+  } else {
+    console.log(
+      "Os seus ganhos por fatura está em, R$" +
+        calculaGanhosPorFatura() +
+        " com este valor o seu saldo irá ficar negativo."
+    );
   }
 });
