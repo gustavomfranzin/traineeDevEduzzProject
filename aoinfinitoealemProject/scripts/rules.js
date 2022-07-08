@@ -1,7 +1,6 @@
 const btn = document.querySelector("#send");
 
 btn.addEventListener("click", function (e) {
-  
 
   const input_TOTAL_GANHOS = document.querySelector("#totalGanhos");
   const input_VALOR_PRODUTO = document.querySelector("#valorProduto");
@@ -74,21 +73,21 @@ btn.addEventListener("click", function (e) {
       BELT[1] = "RED BELT";
       BELT[5] = "GOLDEN BELT";
 
-      console.log(
+      alert(
         "Olá, hoje você possui um total de ganhos: R$" +
-          TOTAL_GANHOS +
+        financial(TOTAL_GANHOS) + 
           " sua faixa atua é, " +
           BELT[0] +
           " para que você atinga a próxima Belt(" +
           BELT[1] +
           ") com esse novo produto você possui um ganho por fatura de, " +
-          calculaGanhosPorFatura() +
+          financial(calculaGanhosPorFatura()) +
           " você precisará vender: " +
-          QTD_FATURAS_APROXIMADAS +
+          financial(QTD_FATURAS_APROXIMADAS) +
           ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
           BELT[5] +
           " você precisará realizar um total de, " +
-          QTD_FATURAS_APROXIMADAS_GOLDEN +
+          financial(QTD_FATURAS_APROXIMADAS_GOLDEN) +
           " FATURAS na plataforma da Eduzz."
       );
     } else {
@@ -102,9 +101,9 @@ btn.addEventListener("click", function (e) {
         BELT[2] = "ORANGE BELT";
         BELT[5] = "GOLDEN BELT";
 
-        console.log(
+        alert(
           "Olá, hoje você possui um total de ganhos: R$" +
-            TOTAL_GANHOS +
+            financial(TOTAL_GANHOS) + 
             " sua faixa atua é, " +
             BELT[1] +
             " para que você atinga a próxima Belt(" +
@@ -112,11 +111,11 @@ btn.addEventListener("click", function (e) {
             ") com esse novo produto você possui um ganho por fatura de, " +
             calculaGanhosPorFatura() +
             " você precisará vender: " +
-            QTD_FATURAS_APROXIMADAS +
+            financial(QTD_FATURAS_APROXIMADAS) +
             ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
             BELT[5] +
             " você precisará realizar um total de, " +
-            QTD_FATURAS_APROXIMADAS_GOLDEN +
+            financial(QTD_FATURAS_APROXIMADAS_GOLDEN) +
             " FATURAS na plataforma da Eduzz."
         );
       } else {
@@ -130,9 +129,9 @@ btn.addEventListener("click", function (e) {
           BELT[3] = "GREEN BELT";
           BELT[5] = "GOLDEN BELT";
 
-          console.log(
+          alert(
             "Olá, hoje você possui um total de ganhos: R$" +
-              TOTAL_GANHOS +
+            financial(TOTAL_GANHOS) +
               " sua faixa atua é, " +
               BELT[2] +
               " para que você atinga a próxima Belt(" +
@@ -140,11 +139,11 @@ btn.addEventListener("click", function (e) {
               ") com esse novo produto você possui um ganho por fatura de, " +
               calculaGanhosPorFatura() +
               " você precisará vender: " +
-              QTD_FATURAS_APROXIMADAS +
+              financial(QTD_FATURAS_APROXIMADAS) +
               ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
               BELT[5] +
               " você precisará realizar um total de, " +
-              QTD_FATURAS_APROXIMADAS_GOLDEN +
+              financial(QTD_FATURAS_APROXIMADAS_GOLDEN) +
               " FATURAS na plataforma da Eduzz."
           );
         } else {
@@ -158,9 +157,9 @@ btn.addEventListener("click", function (e) {
             BELT[4] = "BLACK BELT";
             BELT[5] = "GOLDEN BELT";
 
-            console.log(
+            alert(
               "Olá, hoje você possui um total de ganhos: R$" +
-                TOTAL_GANHOS +
+              financial(TOTAL_GANHOS) +
                 " sua faixa atua é, " +
                 BELT[3] +
                 " para que você atinga a próxima Belt(" +
@@ -168,11 +167,11 @@ btn.addEventListener("click", function (e) {
                 ") com esse novo produto você possui um ganho por fatura de, " +
                 calculaGanhosPorFatura() +
                 " você precisará vender: " +
-                QTD_FATURAS_APROXIMADAS +
+                financial(QTD_FATURAS_APROXIMADAS) +
                 ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
                 BELT[5] +
                 " você precisará realizar um total de, " +
-                QTD_FATURAS_APROXIMADAS_GOLDEN +
+                financial(QTD_FATURAS_APROXIMADAS_GOLDEN) +
                 " FATURAS na plataforma da Eduzz. Acredite, você está quase lá!"
             );
           } else {
@@ -183,19 +182,19 @@ btn.addEventListener("click", function (e) {
               BELT[4] = "BLACK BELT";
               BELT[5] = "GOLDEN BELT";
 
-              console.log(
+              alert(
                 "Olá, hoje você possui um total de ganhos: " +
-                  TOTAL_GANHOS +
+                financial(TOTAL_GANHOS) +
                   " sua faixa atua é, " +
                   BELT[4] +
                   " para que você atinga a próxima Belt(" +
                   BELT[5] +
                   ") com esse novo produto você precisará vender: " +
-                  QTD_FATURAS_APROXIMADAS +
+                  financial(QTD_FATURAS_APROXIMADAS) +
                   ", então... ao infinito e além!"
               );
             } else {
-              console.log(
+              alert(
                 "Bem-vindo ao infinito e além! Agora nessa etapa a sua missão é ajudar outros parceiros a chegarem também!"
               );
             }
@@ -204,10 +203,20 @@ btn.addEventListener("click", function (e) {
       }
     }
   } else {
-    console.log(
+    function DefineComoZero(calculaGanhosPorFatura){
+      if (calculaGanhosPorFatura === undefined){
+        calculaGanhosPorFatura = 0;
+        return calculaGanhosPorFatura
+      }
+    }
+    alert(
       "Os seus ganhos por fatura está em, R$" +
-        calculaGanhosPorFatura() +
+      DefineComoZero() +
         " com este valor o seu saldo irá ficar negativo."
     );
+  }
+
+  function financial(x) {
+    return Number.parseFloat(x).toFixed(2);
   }
 });

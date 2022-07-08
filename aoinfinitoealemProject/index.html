@@ -9,16 +9,17 @@
 </head>
 <body>
     <div class="main-container">
+        <h1> Bem vindo ao infinito e além! <img id="eduzzinho" name="eduzzinho" style="width: 90px; height: 90px;" src="./images/rocket.png"/></h1>
         <div class="container">
             <label>Qual seu total de ganhos até hoje?</label>
-            <input type="text" maxlength="10" id="totalGanhos" value="R$0,00" id="valorProduto" name="totalGanhos">
+            <input type="text" id="totalGanhos" placeholder="R$0,00" id="valorProduto" name="totalGanhos" class="dinheiro form-control" style="display:inline-block">
             <label>Qual valor do produto?</label>
-            <input type="text" maxlength="6" value="R$0,00" id="valorProduto" name="valorProduto">
+            <input type="text" placeholder="R$0,00" id="valorProduto" name="valorProduto" class="dinheiro form-control" style="display:inline-block">
             <label>Qual a comissão para afiliado?</label>
-            <input type="text" value="0%"  id="comissaoAfiliado" name="comissaoAfiliado" class="percent">
+            <input type="number" placeholder="0%"  id="comissaoAfiliado" name="comissaoAfiliado" class="percent">
             <label>Qual a comissão para parceiro(s)?</label>
-            <input type="text" value="0%"  id="comissaoParceiro" name="comissaoParceiro" class="percent">
-            <input type="submit" id="send" name="send" value="Calcular Rota!">
+            <input type="number" placeholder="0%"  id="comissaoParceiro" name="comissaoParceiro" class="percent">
+            <input type="submit" id="send" name="send" value="Calcular Rota">
         </div>
     </div>
 </body>
