@@ -83,11 +83,11 @@ btn.addEventListener("click", function (e) {
           ") com esse novo produto você possui um ganho por fatura de, " +
           financial(calculaGanhosPorFatura()) +
           " você precisará vender: " +
-          financial(QTD_FATURAS_APROXIMADAS) +
+          Math.ceil(QTD_FATURAS_APROXIMADAS) +
           ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
           BELT[5] +
           " você precisará realizar um total de, " +
-          financial(QTD_FATURAS_APROXIMADAS_GOLDEN) +
+          Math.ceil(QTD_FATURAS_APROXIMADAS_GOLDEN) +
           " FATURAS na plataforma da Eduzz."
       );
     } else {
@@ -109,13 +109,13 @@ btn.addEventListener("click", function (e) {
             " para que você atinga a próxima Belt(" +
             BELT[2] +
             ") com esse novo produto você possui um ganho por fatura de, " +
-            calculaGanhosPorFatura() +
+            financial(calculaGanhosPorFatura()) +
             " você precisará vender: " +
-            financial(QTD_FATURAS_APROXIMADAS) +
+            Math.ceil(QTD_FATURAS_APROXIMADAS) +
             ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
             BELT[5] +
             " você precisará realizar um total de, " +
-            financial(QTD_FATURAS_APROXIMADAS_GOLDEN) +
+            Math.ceil(QTD_FATURAS_APROXIMADAS_GOLDEN) +
             " FATURAS na plataforma da Eduzz."
         );
       } else {
@@ -137,13 +137,13 @@ btn.addEventListener("click", function (e) {
               " para que você atinga a próxima Belt(" +
               BELT[3] +
               ") com esse novo produto você possui um ganho por fatura de, " +
-              calculaGanhosPorFatura() +
+              financial(calculaGanhosPorFatura()) +
               " você precisará vender: " +
-              financial(QTD_FATURAS_APROXIMADAS) +
+              Math.ceil(QTD_FATURAS_APROXIMADAS) +
               ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
               BELT[5] +
               " você precisará realizar um total de, " +
-              financial(QTD_FATURAS_APROXIMADAS_GOLDEN) +
+              Math.ceil(QTD_FATURAS_APROXIMADAS_GOLDEN) +
               " FATURAS na plataforma da Eduzz."
           );
         } else {
@@ -165,13 +165,13 @@ btn.addEventListener("click", function (e) {
                 " para que você atinga a próxima Belt(" +
                 BELT[4] +
                 ") com esse novo produto você possui um ganho por fatura de, " +
-                calculaGanhosPorFatura() +
+                financial(calculaGanhosPorFatura()) +
                 " você precisará vender: " +
-                financial(QTD_FATURAS_APROXIMADAS) +
+                Math.ceil(QTD_FATURAS_APROXIMADAS) +
                 ", mas sua jornada ainda não está no fim, para ir ao infinito e além e consquistar a " +
                 BELT[5] +
                 " você precisará realizar um total de, " +
-                financial(QTD_FATURAS_APROXIMADAS_GOLDEN) +
+                Math.ceil(QTD_FATURAS_APROXIMADAS_GOLDEN) +
                 " FATURAS na plataforma da Eduzz. Acredite, você está quase lá!"
             );
           } else {
@@ -190,7 +190,7 @@ btn.addEventListener("click", function (e) {
                   " para que você atinga a próxima Belt(" +
                   BELT[5] +
                   ") com esse novo produto você precisará vender: " +
-                  financial(QTD_FATURAS_APROXIMADAS) +
+                  Math.ceil(QTD_FATURAS_APROXIMADAS) +
                   ", então... ao infinito e além!"
               );
             } else {
